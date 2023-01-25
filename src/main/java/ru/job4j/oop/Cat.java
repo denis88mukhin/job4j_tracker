@@ -17,6 +17,7 @@ public class Cat {
     public void eat(String meat) {
         this.food = meat;
     }
+
     public static void main(String[] args) {
         System.out.println("There are gav's food.");
         Cat gav = new Cat();
