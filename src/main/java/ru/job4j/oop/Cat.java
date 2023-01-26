@@ -21,10 +21,12 @@ public class Cat {
     public static void main(String[] args) {
         System.out.println("There are gav's food.");
         Cat gav = new Cat();
+        gav.giveNick("gav");
         gav.eat("kotleta");
         gav.show();
         System.out.println("There are blak's food.");
         Cat black = new Cat();
+        black.giveNick("black");
         black.eat("fish");
         black.show();
     }
