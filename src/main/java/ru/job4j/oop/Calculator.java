@@ -15,12 +15,12 @@ public class Calculator {
         return e - x;
     }
 
-    public int devide(int d) {
+    public int divide(int d) {
         return d / x;
     }
 
     public int sumAllOperation(int b) {
-        return sum(b) + multiply(b) + minus(b) + devide(b);
+        return sum(b) + multiply(b) + minus(b) + divide(b);
     }
 
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class Calculator {
         Calculator calculator = new Calculator();
         int rsl = calculator.multiply(5);
         System.out.println(rsl);
-        rsl = calculator.devide(20);
+        rsl = calculator.divide(20);
         System.out.println(rsl);
         rsl = calculator.sumAllOperation(10);
         System.out.println(rsl);
