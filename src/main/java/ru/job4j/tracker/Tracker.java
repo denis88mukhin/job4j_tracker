@@ -60,13 +60,10 @@ public class Tracker {
         int index = indexOf(id);
         boolean isValid = index != -1;
         if (isValid) {
-            int startPos = index + 1;
-            int distPos = index;
-            int length = items.length - index - 1;
-            System.arraycopy(items, startPos, items, distPos, length);
-            items[length] = null;
+            System.arraycopy(items, index + 1, items, index, items.length - index - 1);
+            items[items.length - index - 1] = null;
             size--;
         }
-        return index != -1;
+        return isValid;
     }
 }
