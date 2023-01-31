@@ -32,7 +32,7 @@ public class Tracker {
 
     public Item findById(int id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : null;
+        return index == -1 ? null : items[index];
     }
 
     private int indexOf(int id) {
@@ -53,7 +53,7 @@ public class Tracker {
             item.setId(id);
             items[index] = item;
         }
-        return index != -1;
+        return isValid;
     }
 
     public boolean delete(int id) {
