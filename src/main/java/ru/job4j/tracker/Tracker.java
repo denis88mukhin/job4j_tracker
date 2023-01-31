@@ -60,7 +60,8 @@ public class Tracker {
         int index = indexOf(id);
         boolean isValid = index != -1;
         if (isValid) {
-            System.arraycopy(items, index + 1, items, index, items.length - index - 1);
+            System.arraycopy(items, index + 1, items,
+                    index, items.length - index - 1);
             items[items.length - index - 1] = null;
             size--;
         }
