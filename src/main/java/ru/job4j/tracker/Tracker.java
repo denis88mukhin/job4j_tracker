@@ -61,8 +61,8 @@ public class Tracker {
         boolean isValid = index != -1;
         if (isValid) {
             System.arraycopy(items, index + 1, items,
-                    index, size - index - 1);
-            items[size - index - 1] = null;
+                    index, size - 1);
+            items[size - 1] = null;
             size--;
         }
         return isValid;
