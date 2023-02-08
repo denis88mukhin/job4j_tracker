@@ -63,9 +63,11 @@ class StartUITest {
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
         assertThat(out.toString()).isEqualTo(
                 "Menu:" + System.lineSeparator()
-                                + "0. Exit." + System.lineSeparator());
+                                + "0. Exit." + System.lineSeparator()
+                                + "=== Exit program ===" + ln);
     }
 
     @Test
@@ -92,7 +94,7 @@ class StartUITest {
                                 + "Menu:" + ln
                                 + "0. Edit item" + ln
                                 + "1. Exit." + ln
-                                + "=== Exit programm ===" + ln
+                                + "=== Exit program ===" + ln
         );
     }
 
