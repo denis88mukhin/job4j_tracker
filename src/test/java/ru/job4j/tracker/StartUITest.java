@@ -189,7 +189,7 @@ class StartUITest {
         UserAction[] actions = {
                 new Exit(out)
         };
-        new StartUI(out).init(in, tracker,actions);
+        new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString()).isEqualTo(
                 "Menu:" + ln
