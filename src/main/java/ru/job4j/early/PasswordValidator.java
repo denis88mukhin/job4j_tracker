@@ -2,54 +2,47 @@ package ru.job4j.early;
 
 public class PasswordValidator {
     public static String validate(String password) {
-        String special = "~`!@#$%^&*()-_=+\\|[{]};:'\",<.>/?";
-        int count;
+        boolean isUpperCase = false;
+        boolean isLowerCase = false;
+        boolean isDigit = false;
+        boolean isSpecial = false;
+        String[] substrings = {"qwerty", "12345", "password", "admin", "user"};
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null");
         }
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
-        count = password.length();
         for (char p : password.toCharArray()) {
-            if (!Character.isUpperCase(p)) {
-                count--;
-                if (count == 0) {
-                    throw new IllegalArgumentException("Password should contain at least one uppercase letter");
-                }
+            if (Character.isUpperCase(p)) {
+                isUpperCase = true;
+            }
+            if (Character.isLowerCase(p)) {
+                isLowerCase = true;
+            }
+            if (Character.isDigit(p)) {
+                isDigit = true;
+            }
+            if (!Character.isDigit(p) && !Character.isAlphabetic(p)) {
+                isSpecial = true;
             }
         }
-        count = password.length();
-        for (char p : password.toCharArray()) {
-            if (!Character.isLowerCase(p)) {
-                count--;
-                if (count == 0) {
-                    throw new IllegalArgumentException("Password should contain at least one lowercase letter");
-                }
-            }
+        if (!isUpperCase) {
+            throw new IllegalArgumentException("Password should contain at least one uppercase letter");
         }
-        count = password.length();
-        for (char p : password.toCharArray()) {
-            if (!Character.isDigit(p)) {
-                count--;
-                if (count == 0) {
-                    throw new IllegalArgumentException("Password should contain at least one figure");
-                }
-            }
+        if (!isLowerCase) {
+            throw new IllegalArgumentException("Password should contain at least one lowercase letter");
         }
-        count = password.length();
-        for (char p : password.toCharArray()) {
-            if (!special.contains(String.valueOf(p))) {
-                count--;
-                if (count == 0) {
-                    throw new IllegalArgumentException("Password should contain at least one special symbol");
-                }
-            }
+        if (!isDigit) {
+            throw new IllegalArgumentException("Password should contain at least one figure");
         }
-        if (password.toLowerCase().contains("qwerty") || password.toLowerCase().contains("12345")
-                || password.toLowerCase().contains("password") || password.toLowerCase().contains("admin")
-                || password.toLowerCase().contains("user")) {
-            throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+        if (!isSpecial) {
+            throw new IllegalArgumentException("Password should contain at least one special symbol");
+        }
+        for (String substring : substrings) {
+            if (password.toLowerCase().contains(substring)) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
+            }
         }
         return password;
     }
