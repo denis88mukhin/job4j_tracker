@@ -43,7 +43,7 @@ class NotifyAccountTest {
                 new Account("123", "Mark Markov", "000000003")
         );
         HashSet<Account> expected = new HashSet<>();
-        expected.add( new Account("123", "Petr Arsentev", "eDer3432f"));
+        expected.add(new Account("123", "Petr Arsentev", "eDer3432f"));
         expected.add(new Account("142", "Petr Arsentev", "eDer3432f"));
         assertThat(NotifyAccount.sent(accounts)).containsAll(expected);
     }
