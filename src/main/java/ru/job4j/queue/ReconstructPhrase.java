@@ -22,16 +22,16 @@ public class ReconstructPhrase {
                 result.append(element);
             }
         }
-        return String.valueOf(result);
+        return result.toString();
     }
 
     private String getDescendingElements() {
         StringBuilder result = new StringBuilder();
-        Iterator<Character> iterator = descendingElement.descendingIterator();
-        while (iterator.hasNext()) {
-           result.append(iterator.next());
+        int size = descendingElement.size();
+        for (int i = 0; i < size; i++) {
+            result.append(descendingElement.pollLast());
         }
-        return String.valueOf(result);
+        return result.toString();
     }
 
     public String getReconstructPhrase() {
