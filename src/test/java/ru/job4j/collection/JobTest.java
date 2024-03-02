@@ -8,10 +8,20 @@ import static org.assertj.core.api.Assertions.*;
 
 class JobTest {
     @Test
-    public void whenComparatorByNameAndPriority() {
+    public void whenComparatorDescByNameAndPriority() {
         Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
         int result = cmpNamePriority.compare(
                 new Job("Impl task", 0),
+                new Job("Impl task", 1)
+        );
+        assertThat(result).isGreaterThan(0);
+    }
+
+    @Test
+    public void whenComparatorAscByNameAndPriority() {
+        Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
+        int result = cmpNamePriority.compare(
+                new Job("Fix bug", 0),
                 new Job("Fix bug", 1)
         );
         assertThat(result).isLessThan(0);
