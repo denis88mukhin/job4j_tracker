@@ -2,7 +2,16 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает модель баковского счета
+ * @author Denis Mukhin
+ * @version 1.0
+ */
 public class Account {
+    /**
+     * requisite хранятся реквезиты банковского счета.
+     * balance хранятся данные о балансе счета.
+     */
     private String requisite;
     private double balance;
 
